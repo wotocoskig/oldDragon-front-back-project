@@ -1,0 +1,15 @@
+<h1>{{ personagem.nome }}</h1>
+<p>Raça: {{ personagem.raca.nome }}</p>
+<p>Classe: {{ personagem.classe.nome }}</p>
+
+<h3>Atributos</h3>
+<ul>
+  <li>Força: {{ personagem.forca }}</li>
+  <li>Destreza: {{ personagem.destreza }}</li>
+  <li>Constituição: {{ personagem.constituicao }}</li>
+  <li>Inteligência: {{ personagem.inteligencia }}</li>
+  <li>Sabedoria: {{ personagem.sabedoria }}</li>
+  <li>Carisma: {{ personagem.carisma }}</li>
+</ul>
+
+<a href="{{ url_for('routes.index') }}">Voltar</a>

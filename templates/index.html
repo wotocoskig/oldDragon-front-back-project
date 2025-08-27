@@ -1,0 +1,9 @@
+<h1>Personagens</h1>
+
+<ul>
+  {% for nome in personagens %}
+    <li><a href="{{ url_for('routes.personagem', nome=nome) }}">{{ nome }}</a></li>
+  {% endfor %}
+</ul>
+
+<a href="{{ url_for('routes.criar') }}">Criar novo personagem</a>

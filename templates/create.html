@@ -1,0 +1,27 @@
+<h1>Criar Personagem</h1>
+
+<form method="post">
+  <label>Nome:</label>
+  <input type="text" name="nome" required><br>
+
+  <label>Raça:</label>
+  <select name="raca">
+    {% for r in racas.keys() %}
+      <option value="{{ r }}">{{ r }}</option>
+    {% endfor %}
+  </select><br>
+
+  <label>Classe:</label>
+  <select name="classe">
+    {% for c in classes.keys() %}
+      <option value="{{ c }}">{{ c }}</option>
+    {% endfor %}
+  </select><br>
+
+  <label>Estilo de atributos:</label>
+  <select name="estilo">
+    <option value="classico">Clássico</option>
+  </select><br>
+
+  <button type="submit">Criar</button>
+</form>

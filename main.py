@@ -1,12 +1,8 @@
 from flask import Flask
-from flask import render_template
-#Flask sqlalchemy tabelas para banco de dados
-#flask wtf forms formularios
+from routes import routes
 
 app = Flask(__name__)
-
-from routes import *
+app.register_blueprint(routes)
 
 if __name__ == "__main__":
-    app.run()
-    
+    app.run(debug=True)
