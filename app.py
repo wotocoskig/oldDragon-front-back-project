@@ -19,25 +19,33 @@ def create():
         classe_nome = request.form["classe"]
         estilo = request.form.get("estilo", "classico")
 
-        # selecionar atributos (por enquanto tudo clássico)
         if estilo == "classico":
             atributos = DistribuidorAtributos.estilo_classico()
-        elif estilo == "aventureiro":
-            atributos = DistribuidorAtributos.rolar_aventureiro()  # pode adaptar depois
-        elif estilo == "heroico":
-            atributos = DistribuidorAtributos.rolar_heroico() # pode adaptar depois
-        else:
-            atributos = DistribuidorAtributos.estilo_classico()
+            raca = RAÇAS.get(raca_nome)
+            classe = CLASSES.get(classe_nome)
+            p = Personagem(nome, atributos, raca, classe)
+            p.salvar()
+            return redirect(url_for("list_personagens"))
 
-        raca = RAÇAS.get(raca_nome)
-        classe = CLASSES.get(classe_nome)
+        elif estilo in ["aventureiro", "heroico"]:
+            if estilo == "aventureiro":
+                valores = DistribuidorAtributos.rolar_aventureiro()
+            else:
+                valores = DistribuidorAtributos.rolar_heroico()
 
-        p = Personagem(nome, atributos, raca, classe)
-        p.salvar()
-
-        return redirect(url_for("list_personagens"))
+            # renderiza página para o usuário escolher onde colocar
+            return render_template(
+                "distribuir.html",
+                nome=nome,
+                raca=raca_nome,
+                classe=classe_nome,
+                estilo=estilo,
+                valores=valores,
+                atributos=["Força","Destreza","Constituição","Inteligência","Sabedoria","Carisma"]
+            )
 
     return render_template("create.html", racas=RAÇAS.keys(), classes=CLASSES.keys())
+
 
 # ----------------- VER PERSONAGEM -----------------
 @app.route("/personagem/<nome>")
@@ -61,12 +69,14 @@ def distribuir():
     classe_nome = request.form["classe"]
     estilo = request.form["estilo"]
 
-    atributos = {}
-    for attr in ["Força","Destreza","Constituição","Inteligência","Sabedoria","Carisma"]:
-        valor_str = request.form.get(attr)
-        if not valor_str:
-            return redirect(request.referrer)
-        atributos[attr] = int(valor_str)
+    atributos = {
+        "Força": int(request.form["Força"]),
+        "Destreza": int(request.form["Destreza"]),
+        "Constituição": int(request.form["Constituição"]),
+        "Inteligência": int(request.form["Inteligência"]),
+        "Sabedoria": int(request.form["Sabedoria"]),
+        "Carisma": int(request.form["Carisma"])
+    }
 
     raca = RAÇAS.get(raca_nome)
     classe = CLASSES.get(classe_nome)
@@ -75,6 +85,7 @@ def distribuir():
     p.salvar()
 
     return redirect(url_for("list_personagens"))
+
 
 
 if __name__ == "__main__":

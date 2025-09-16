@@ -48,5 +48,15 @@
         "carisma": 4,
         "raca": "Humano",
         "classe": "Guerreiro"
+    },
+    "meu cu": {
+        "forca": 7,
+        "destreza": 11,
+        "constituicao": 11,
+        "inteligencia": 12,
+        "sabedoria": 9,
+        "carisma": 13,
+        "raca": "Humano",
+        "classe": "Guerreiro"
     }
 }
