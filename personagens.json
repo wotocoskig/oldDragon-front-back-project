@@ -1,0 +1,12 @@
+{
+    "zork": {
+        "forca": 11,
+        "destreza": 12,
+        "constituicao": 7,
+        "inteligencia": 13,
+        "sabedoria": 12,
+        "carisma": 12,
+        "raca": "Humano",
+        "classe": "Guerreiro"
+    }
+}

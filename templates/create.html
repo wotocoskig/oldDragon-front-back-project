@@ -1,27 +1,40 @@
-<h1>Criar Personagem</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Personagem</title>
+</head>
+<body>
+    <h1>Criar Personagem</h1>
+    <form method="post">
+        <label>Nome: <input type="text" name="nome" required></label><br>
 
-<form method="post">
-  <label>Nome:</label>
-  <input type="text" name="nome" required><br>
+        <label>Raça:
+            <select name="raca">
+                {% for r in racas %}
+                    <option value="{{ r }}">{{ r }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
 
-  <label>Raça:</label>
-  <select name="raca">
-    {% for r in racas.keys() %}
-      <option value="{{ r }}">{{ r }}</option>
-    {% endfor %}
-  </select><br>
+        <label>Classe:
+            <select name="classe">
+                {% for c in classes %}
+                    <option value="{{ c }}">{{ c }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
 
-  <label>Classe:</label>
-  <select name="classe">
-    {% for c in classes.keys() %}
-      <option value="{{ c }}">{{ c }}</option>
-    {% endfor %}
-  </select><br>
+        <label>Estilo de atributos:
+            <select name="estilo">
+                <option value="classico">Clássico</option>
+                <option value="aventureiro">Aventureiro</option>
+                <option value="heroico">Heróico</option>
+            </select>
+        </label><br>
 
-  <label>Estilo de atributos:</label>
-  <select name="estilo">
-    <option value="classico">Clássico</option>
-  </select><br>
-
-  <button type="submit">Criar</button>
-</form>
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>
