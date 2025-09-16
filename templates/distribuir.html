@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Distribuir Atributos</title>
+    <link rel="stylesheet" href="/static/distribuir.css">
+</head>
+<body>
+    <h1>Distribuir Atributos - {{ estilo|capitalize }}</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for msg in messages %}
+            <p>{{ msg }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('distribuir') }}" id="form-atributos"
+          data-valores="{{ valores|join(',') }}">
+        <input type="hidden" name="nome" value="{{ nome }}">
+        <input type="hidden" name="raca" value="{{ raca }}">
+        <input type="hidden" name="classe" value="{{ classe }}">
+        <input type="hidden" name="estilo" value="{{ estilo }}">
+
+        {% for atributo in atributos %}
+            <label for="{{ atributo }}">{{ atributo }}</label>
+            <select name="{{ atributo }}" id="{{ atributo }}">
+                <option value="" disabled selected>Escolha um valor</option>
+                {% for valor in valores %}
+                    <option value="{{ valor }}">{{ valor }}</option>
+                {% endfor %}
+            </select>
+        {% endfor %}
+
+        <button type="submit" id="btn-salvar" disabled>Salvar Personagem</button>
+    </form>
+
+    <script>
+        const form = document.getElementById("form-atributos");
+        const selects = form.querySelectorAll("select");
+        const btnSalvar = document.getElementById("btn-salvar");
+
+        const valoresArray = form.dataset.valores.split(',');
+        const contagemValores = {};
+        valoresArray.forEach(v => { contagemValores[v] = (contagemValores[v] || 0) + 1; });
+
+        function atualizarOptions() {
+            const usados = {};
+            let todosPreenchidos = true;
+
+            selects.forEach(sel => {
+                if (sel.value === "") todosPreenchidos = false;
+                else usados[sel.value] = (usados[sel.value] || 0) + 1;
+            });
+
+            selects.forEach(sel => {
+                Array.from(sel.options).forEach(opt => {
+                    if (opt.value === "") return;
+                    const maxUso = contagemValores[opt.value];
+                    const usoAtual = usados[opt.value] || 0;
+                    opt.disabled = usoAtual >= maxUso && sel.value !== opt.value;
+                });
+            });
+
+            btnSalvar.disabled = !todosPreenchidos;
+        }
+
+        selects.forEach(sel => sel.addEventListener("change", atualizarOptions));
+    </script>
+</body>
+</html>

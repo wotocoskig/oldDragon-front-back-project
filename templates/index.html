@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Início</title>
+<<<<<<< HEAD
 </head>
 <body>
     <h1>Bem-vindo ao Criador de Personagens</h1>
@@ -11,4 +12,17 @@
         <li><a href="{{ url_for('list_personagens') }}">Ver personagens salvos</a></li>
     </ul>
 </body>
+=======
+    <link rel="stylesheet" href= "/static/index.css">
+</head>
+<div class="conteiner">
+    <body>
+        <h1>Bem-vindo ao Criador de Personagens</h1>
+        <div class="corpo">
+            <a href="{{ url_for('create') }}">Criar novo personagem</a>
+            <a href="{{ url_for('list_personagens') }}">Ver personagens salvos</a>
+        </div>
+    </body>
+</div>
+>>>>>>> 673114b (implement css and fixed bugs)
 </html>

@@ -38,5 +38,68 @@
         "carisma": 13,
         "raca": "Humano",
         "classe": "Guerreiro"
+<<<<<<< HEAD
+=======
+    },
+    "lklklk": {
+        "forca": 11,
+        "destreza": 12,
+        "constituicao": 9,
+        "inteligencia": 15,
+        "sabedoria": 7,
+        "carisma": 8,
+        "raca": "Humano",
+        "classe": "Guerreiro"
+    },
+    "ksksks": {
+        "forca": 11,
+        "destreza": 11,
+        "constituicao": 7,
+        "inteligencia": 7,
+        "sabedoria": 10,
+        "carisma": 7,
+        "raca": "Humano",
+        "classe": "Guerreiro"
+    },
+    "aventureiro": {
+        "forca": 10,
+        "destreza": 17,
+        "constituicao": 15,
+        "inteligencia": 11,
+        "sabedoria": 9,
+        "carisma": 14,
+        "raca": "Humano",
+        "classe": "Guerreiro"
+    },
+    "heroico": {
+        "forca": 6,
+        "destreza": 17,
+        "constituicao": 7,
+        "inteligencia": 8,
+        "sabedoria": 11,
+        "carisma": 16,
+        "raca": "Humano",
+        "classe": "Guerreiro"
+    },
+    "teste": {
+        "forca": 16,
+        "destreza": 16,
+        "constituicao": 14,
+        "inteligencia": 12,
+        "sabedoria": 12,
+        "carisma": 13,
+        "raca": "Humano",
+        "classe": "Guerreiro"
+    },
+    "teste2": {
+        "forca": 8,
+        "destreza": 8,
+        "constituicao": 9,
+        "inteligencia": 16,
+        "sabedoria": 13,
+        "carisma": 5,
+        "raca": "Humano",
+        "classe": "Guerreiro"
+>>>>>>> 673114b (implement css and fixed bugs)
     }
 }

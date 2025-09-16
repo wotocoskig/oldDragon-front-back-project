@@ -1,0 +1,33 @@
+/* list_personagens.css */
+body {
+    background-color: #eef2f3;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: #34495e;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+ul.personagens-lista {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.personagens-lista li {
+    margin-bottom: 10px;
+}
+
+ul.personagens-lista li a {
+    color: #27ae60;
+    text-decoration: none;
+}
+
+ul.personagens-lista li a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin-bottom: 10px;
+}

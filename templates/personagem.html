@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ personagem.nome }}</title>
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="/static/personagem.css">
+>>>>>>> 673114b (implement css and fixed bugs)
 </head>
 <body>
     <h1>Ficha do Personagem: {{ personagem.nome }}</h1>
@@ -11,7 +15,11 @@
     <p><b>Classe:</b> {{ personagem.classe.nome if personagem.classe else 'Nenhuma' }}</p>
 
     <h3>Atributos</h3>
+<<<<<<< HEAD
     <ul>
+=======
+    <ul class="atributos">
+>>>>>>> 673114b (implement css and fixed bugs)
         <li>Força: {{ personagem.forca }}</li>
         <li>Destreza: {{ personagem.destreza }}</li>
         <li>Constituição: {{ personagem.constituicao }}</li>
