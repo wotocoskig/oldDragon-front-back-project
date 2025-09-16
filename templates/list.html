@@ -3,20 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Personagens Salvos</title>
-<<<<<<< HEAD
-=======
     <link rel="stylesheet" href="/static/list.css">
->>>>>>> 673114b (implement css and fixed bugs)
 </head>
 <body>
     <h1>Personagens Salvos</h1>
 
     {% if personagens %}
-<<<<<<< HEAD
         <ul>
-=======
-        <ul class="personagens-lista">
->>>>>>> 673114b (implement css and fixed bugs)
             {% for nome in personagens %}
                 <li>
                     <a href="{{ url_for('personagem', nome=nome) }}">{{ nome }}</a>
