@@ -2,17 +2,13 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Personagens</title>
+    <title>Início</title>
 </head>
 <body>
-    <h1>Personagens salvos</h1>
+    <h1>Bem-vindo ao Criador de Personagens</h1>
     <ul>
-        {% for nome in personagens %}
-            <a href="{{ url_for('personagem', nome=nome) }}">{{ nome }}</a>
-        {% else %}
-            <li>Nenhum personagem salvo ainda.</li>
-        {% endfor %}
+        <li><a href="{{ url_for('create') }}">Criar novo personagem</a></li>
+        <li><a href="{{ url_for('list_personagens') }}">Ver personagens salvos</a></li>
     </ul>
-    <a href="{{ url_for('create') }}">Criar novo personagem</a>
 </body>
 </html>

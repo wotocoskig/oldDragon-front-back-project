@@ -8,8 +8,7 @@ app.secret_key = "segredo"  # Necessário para usar flash messages
 # ----------------- HOME -----------------
 @app.route("/")
 def index():
-    personagens = Personagem.listar_personagens()
-    return render_template("index.html", personagens=personagens)
+    return render_template("index.html")  # agora a home só mostra o menu
 
 
 # ----------------- CRIAR PERSONAGEM -----------------
@@ -21,13 +20,13 @@ def create():
         classe_nome = request.form["classe"]
         estilo = request.form.get("estilo", "classico")
 
-        # selecionar atributos
+        # selecionar atributos (por enquanto tudo clássico)
         if estilo == "classico":
             atributos = DistribuidorAtributos.estilo_classico()
         elif estilo == "aventureiro":
-            atributos = DistribuidorAtributos.estilo_classico()  # pode adaptar depois
+            atributos = DistribuidorAtributos.estilo_aventureiro()  # pode adaptar depois
         elif estilo == "heroico":
-            atributos = DistribuidorAtributos.estilo_classico()  # pode adaptar depois
+            atributos = DistribuidorAtributos.estilo_heroico()  # pode adaptar depois
         else:
             atributos = DistribuidorAtributos.estilo_classico()
 
@@ -38,7 +37,7 @@ def create():
         p.salvar()
 
         flash(f"Personagem {nome} criado com sucesso!")
-        return redirect(url_for("index"))
+        return redirect(url_for("list_personagens"))
 
     return render_template("create.html", racas=RAÇAS.keys(), classes=CLASSES.keys())
 
@@ -49,7 +48,7 @@ def personagem(nome):
     p = Personagem.carregar(nome)
     if not p:
         flash("Personagem não encontrado!")
-        return redirect(url_for("index"))
+        return redirect(url_for("list_personagens"))
     return render_template("personagem.html", personagem=p)
 
 
@@ -57,7 +56,7 @@ def personagem(nome):
 @app.route("/list")
 def list_personagens():
     personagens = Personagem.listar_personagens()
-    return render_template("index.html", personagens=personagens)
+    return render_template("list.html", personagens=personagens)
 
 
 if __name__ == "__main__":

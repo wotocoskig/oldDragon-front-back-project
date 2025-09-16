@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Personagens Salvos</title>
+</head>
+<body>
+    <h1>Personagens Salvos</h1>
+
+    {% if personagens %}
+        <ul>
+            {% for nome in personagens %}
+                <li>
+                    <a href="{{ url_for('personagem', nome=nome) }}">{{ nome }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum personagem salvo ainda!</p>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}">Voltar para Home</a>
+</body>
+</html>

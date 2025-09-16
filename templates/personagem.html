@@ -5,24 +5,29 @@
     <title>{{ personagem.nome }}</title>
 </head>
 <body>
-    <h1>{{ personagem.nome }}</h1>
-    <p><strong>Raça:</strong> {{ personagem.raca.nome if personagem.raca else 'Nenhuma' }}</p>
-    <p><strong>Classe:</strong> {{ personagem.classe.nome if personagem.classe else 'Nenhuma' }}</p>
-    <p><strong>Força:</strong> {{ personagem.forca }}</p>
-    <p><strong>Destreza:</strong> {{ personagem.destreza }}</p>
-    <p><strong>Constituição:</strong> {{ personagem.constituicao }}</p>
-    <p><strong>Inteligência:</strong> {{ personagem.inteligencia }}</p>
-    <p><strong>Sabedoria:</strong> {{ personagem.sabedoria }}</p>
-    <p><strong>Carisma:</strong> {{ personagem.carisma }}</p>
+    <h1>Ficha do Personagem: {{ personagem.nome }}</h1>
+
+    <p><b>Raça:</b> {{ personagem.raca.nome if personagem.raca else 'Nenhuma' }}</p>
+    <p><b>Classe:</b> {{ personagem.classe.nome if personagem.classe else 'Nenhuma' }}</p>
+
+    <h3>Atributos</h3>
+    <ul>
+        <li>Força: {{ personagem.forca }}</li>
+        <li>Destreza: {{ personagem.destreza }}</li>
+        <li>Constituição: {{ personagem.constituicao }}</li>
+        <li>Inteligência: {{ personagem.inteligencia }}</li>
+        <li>Sabedoria: {{ personagem.sabedoria }}</li>
+        <li>Carisma: {{ personagem.carisma }}</li>
+    </ul>
 
     {% if personagem.raca %}
-        <p><strong>Habilidades da Raça:</strong> {{ personagem.raca.habilidades | join(', ') }}</p>
+        <p><b>Habilidades da raça:</b> {{ personagem.raca.habilidades | join(", ") }}</p>
     {% endif %}
 
     {% if personagem.classe %}
-        <p><strong>Habilidades da Classe:</strong> {{ personagem.classe.habilidades | join(', ') }}</p>
+        <p><b>Habilidades da classe:</b> {{ personagem.classe.habilidades | join(", ") }}</p>
     {% endif %}
 
-    <a href="{{ url_for('index') }}">Voltar</a>
+    <a href="{{ url_for('list_personagens') }}">Voltar para lista</a>
 </body>
 </html>

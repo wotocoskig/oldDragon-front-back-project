@@ -18,5 +18,25 @@
         "carisma": 11,
         "raca": "Humano",
         "classe": "Guerreiro"
+    },
+    "fdfdfdf": {
+        "forca": 12,
+        "destreza": 4,
+        "constituicao": 14,
+        "inteligencia": 10,
+        "sabedoria": 7,
+        "carisma": 12,
+        "raca": "Humano",
+        "classe": "Guerreiro"
+    },
+    "zorkssss": {
+        "forca": 8,
+        "destreza": 8,
+        "constituicao": 8,
+        "inteligencia": 13,
+        "sabedoria": 17,
+        "carisma": 13,
+        "raca": "Humano",
+        "classe": "Guerreiro"
     }
 }
