@@ -8,5 +8,15 @@
         "carisma": 12,
         "raca": "Humano",
         "classe": "Guerreiro"
+    },
+    "asasasasas": {
+        "forca": 10,
+        "destreza": 9,
+        "constituicao": 9,
+        "inteligencia": 12,
+        "sabedoria": 9,
+        "carisma": 11,
+        "raca": "Humano",
+        "classe": "Guerreiro"
     }
 }

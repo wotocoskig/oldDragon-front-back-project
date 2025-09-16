@@ -30,7 +30,7 @@ RAÇAS = {
 
 # ----------------- CLASSES -----------------
 class Classe:
-    def _init_(self, nome, atributos_principais, habilidades):
+    def __init__(self, nome, atributos_principais, habilidades):
         self.nome = nome
         self.atributos_principais = atributos_principais
         self.habilidades = habilidades
