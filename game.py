@@ -21,10 +21,7 @@ class Raca:
                 atributos[attr] += bonus
         return atributos
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 673114b (implement css and fixed bugs)
 RAÇAS = {
     "Humano": Raca("Humano", {}, 6, 0, "Variável", ["Adaptabilidade"]),
     "Elfo": Raca("Elfo", {"Destreza": 2, "Inteligência": 1}, 6, 3, "Neutro", ["Visão aguçada", "Resistência a sono mágico"]),
@@ -39,21 +36,15 @@ class Classe:
         self.atributos_principais = atributos_principais
         self.habilidades = habilidades
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 673114b (implement css and fixed bugs)
 CLASSES = {
     "Guerreiro": Classe("Guerreiro", ["Força", "Constituição"], ["Ataque físico", "Uso de armas pesadas"]),
     "Ladrão": Classe("Ladrão", ["Destreza"], ["Furtividade", "Abrir fechaduras"]),
     "Mago": Classe("Mago", ["Inteligência"], ["Magias", "Conjuração"])
 }
 
-<<<<<<< HEAD
 # ----------------- MAPA DE ATRIBUTOS (aceita sem acento) -----------------
-=======
-# ----------------- MAPA DE ATRIBUTOS -----------------
->>>>>>> 673114b (implement css and fixed bugs)
+
 def normalizar_texto(txt):
     return ''.join(c for c in unicodedata.normalize('NFD', txt.lower()) if unicodedata.category(c) != 'Mn')
 
@@ -98,7 +89,6 @@ class Personagem:
         self.sabedoria = attrs["Sabedoria"]
         self.carisma = attrs["Carisma"]
 
-<<<<<<< HEAD
     def mostrar_atributos(self):
         print(f"\n--- Personagem: {self.nome} ---")
         print(f"Raça: {self.raca.nome if self.raca else 'Nenhuma'}")
@@ -115,8 +105,7 @@ class Personagem:
             print(f"Habilidades da classe: {', '.join(self.classe.habilidades)}")
         print("-------------------------------")
 
-=======
->>>>>>> 673114b (implement css and fixed bugs)
+
     def salvar(self):
         personagens = {}
         if os.path.exists(ARQUIVO_PERSONAGENS):
@@ -134,27 +123,21 @@ class Personagem:
         }
         with open(ARQUIVO_PERSONAGENS, "w") as f:
             json.dump(personagens, f, indent=4)
-<<<<<<< HEAD
         print(f"\nPersonagem '{self.nome}' salvo com sucesso!")
-=======
->>>>>>> 673114b (implement css and fixed bugs)
+
 
     @staticmethod
     def carregar(nome):
         if not os.path.exists(ARQUIVO_PERSONAGENS):
-<<<<<<< HEAD
             print("\nNenhum personagem salvo ainda!")
-=======
->>>>>>> 673114b (implement css and fixed bugs)
+
             return None
         with open(ARQUIVO_PERSONAGENS, "r") as f:
             personagens = json.load(f)
         dados = personagens.get(nome)
         if not dados:
-<<<<<<< HEAD
             print(f"\nPersonagem '{nome}' não encontrado!")
-=======
->>>>>>> 673114b (implement css and fixed bugs)
+
             return None
         raca = RAÇAS.get(dados.get("raca"))
         classe = CLASSES.get(dados.get("classe"))
@@ -166,18 +149,14 @@ class Personagem:
             "Sabedoria": dados["sabedoria"],
             "Carisma": dados["carisma"]
         }
-<<<<<<< HEAD
         personagem = Personagem(nome, atributos, raca, classe)
         print(f"\nPersonagem '{nome}' carregado com sucesso!")
         return personagem
-=======
-        return Personagem(nome, atributos, raca, classe)
->>>>>>> 673114b (implement css and fixed bugs)
+
 
     @staticmethod
     def listar_personagens():
         if not os.path.exists(ARQUIVO_PERSONAGENS):
-<<<<<<< HEAD
             print("\nNenhum personagem salvo ainda!")
             return []
         with open(ARQUIVO_PERSONAGENS, "r") as f:
@@ -188,30 +167,19 @@ class Personagem:
         print("\nPersonagens salvos:")
         for nome in personagens:
             print(f"- {nome}")
-=======
-            return []
-        with open(ARQUIVO_PERSONAGENS, "r") as f:
-            personagens = json.load(f)
->>>>>>> 673114b (implement css and fixed bugs)
+
         return list(personagens.keys())
 
 # ----------------- DISTRIBUIDOR DE ATRIBUTOS -----------------
 class DistribuidorAtributos:
     @staticmethod
     def rolar_3d6():
-<<<<<<< HEAD
         return sum(random.randint(1, 6) for _ in range(3))
 
     @staticmethod
     def rolar_4d6_descarta_menor():
         dados = [random.randint(1, 6) for _ in range(4)]
-=======
-        return sum(random.randint(1,6) for _ in range(3))
 
-    @staticmethod
-    def rolar_4d6_descarta_menor():
-        dados = [random.randint(1,6) for _ in range(4)]
->>>>>>> 673114b (implement css and fixed bugs)
         dados.remove(min(dados))
         return sum(dados)
 
@@ -223,7 +191,6 @@ class DistribuidorAtributos:
         ))
 
     @staticmethod
-<<<<<<< HEAD
     def escolher_atributo(valor, atributos, distribuicao):
         while True:
             escolha = input(f"Em qual atributo deseja colocar o valor {valor}? ").strip()
@@ -355,11 +322,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-=======
-    def rolar_aventureiro():
-        return [DistribuidorAtributos.rolar_3d6() for _ in range(6)]
 
-    @staticmethod
-    def rolar_heroico():
-        return [DistribuidorAtributos.rolar_4d6_descarta_menor() for _ in range(6)]
->>>>>>> 673114b (implement css and fixed bugs)

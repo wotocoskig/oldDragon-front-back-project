@@ -132,3 +132,4 @@ def distribuir():
 >>>>>>> 673114b (implement css and fixed bugs)
 if __name__ == "__main__":
     app.run(debug=True)
+
