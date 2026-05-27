@@ -46,7 +46,9 @@ def create():
 
     return render_template("create.html", racas=RAÇAS.keys(), classes=CLASSES.keys())
 
-
+ 
+ 
+ 
 # ----------------- VER PERSONAGEM -----------------
 @app.route("/personagem/<nome>")
 def personagem(nome):
