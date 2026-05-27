@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template("index.html")  # agora a home só mostra o menu
-
+ 
 
 # ----------------- CRIAR PERSONAGEM -----------------
 @app.route("/create", methods=["GET", "POST"])
